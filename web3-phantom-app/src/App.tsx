@@ -51,7 +51,7 @@ function App() {
   const checkEligibility = async (): Promise<void> => {
     setIsChecking(true);
     await new Promise(resolve => setTimeout(resolve, 2000));
-    setEligibilityResult(`You Qualify! You are eligible for 500,000 $GFD!
+    setEligibilityResult(`You Qualify! You are eligible for 500,000 $GOLD!
 
 The Airdrop will begin shortly and you have secured your position. Congratulations! Keep an eye out for when the airdrop opens and simply come back here to claim your tokens!`);
     setIsChecking(false);
@@ -145,7 +145,7 @@ The Airdrop will begin shortly and you have secured your position. Congratulatio
             borderRadius: '8px',
             fontFamily: '"Press Start 2P", monospace'
           }}>
-            Gold Fart Dust (GFD) and Unicorn Fart Dust (UFD) have no backing — no gold, no silver, no hidden treasure — just pure humor, curiosity, and a dash of meme magic. This is <strong>not investment advice</strong>. If you're considering "investing" in either GFD or UFD, keep in mind that its value aligns perfectly with its name. But hey, the world has a funny way of surprising us sometimes.
+            Gold Fart Dust (GOLD) and Unicorn Fart Dust (UFD) have no backing — no gold, no silver, no hidden treasure — just pure humor, curiosity, and a dash of meme magic. This is <strong>not investment advice</strong>. If you're considering "investing" in either GOLD or UFD, keep in mind that its value aligns perfectly with its name. But hey, the world has a funny way of surprising us sometimes.
           </p>
         </div>
 
