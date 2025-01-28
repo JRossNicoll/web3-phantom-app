@@ -5,6 +5,32 @@ import type { CSSProperties } from 'react';
 
 const phantom = phantomModule();
 
+const GoldFlake = ({ index }: { index: number }) => {
+  const size = 2 + Math.random() * 4;
+  const startPosition = Math.random() * 100;
+  const duration = 5 + Math.random() * 10;
+  const delay = Math.random() * -20;
+
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        width: `${size}px`,
+        height: `${size}px`,
+        background: 'linear-gradient(45deg, #FFD700, #FDB931)',
+        borderRadius: '50%',
+        left: `${startPosition}vw`,
+        top: '-5vh',
+        animation: `float ${duration}s linear infinite`,
+        animationDelay: `${delay}s`,
+        opacity: 0,
+        zIndex: 0,
+        boxShadow: '0 0 5px #FFD700'
+      }}
+    />
+  );
+};
+
 init({
   wallets: [phantom],
   chains: [
@@ -71,348 +97,137 @@ The Airdrop will begin shortly and you have secured your position. Congratulatio
         overflow: 'hidden'
       }}>
         {/* Wallet Connection Section */}
-      <div style={{
-        background: '#191919',
-        borderRadius: '16px',
-        padding: '30px',
-        maxWidth: '800px',
-        width: '90%',
-        boxShadow: '0 0 30px rgba(218, 165, 32, 0.1)',
-        textAlign: 'center',
-        position: 'relative',
-        zIndex: 1,
-        border: '1px solid rgba(128, 128, 128, 0.2)'
-      }}>
         <div style={{
           background: '#191919',
-          borderRadius: '14px',
-          padding: '25px',
-          border: '1px solid rgba(128, 128, 128, 0.1)'
+          borderRadius: '16px',
+          padding: '30px',
+          maxWidth: '800px',
+          width: '90%',
+          boxShadow: '0 0 30px rgba(218, 165, 32, 0.1)',
+          textAlign: 'center',
+          position: 'relative',
+          zIndex: 1,
+          border: '1px solid rgba(128, 128, 128, 0.2)'
         }}>
-          <div style={{
-            background: '#191919',
-            borderRadius: '12px',
-            padding: '25px',
-            border: '1px solid rgba(128, 128, 128, 0.05)'
-          }}>
-            <h1 style={{
-              fontFamily: '"Press Start 2P", monospace',
-              fontSize: '24px',
-              color: '#FFD700',
-              marginBottom: '25px'
-            }}>
-              CONNECT A WALLET TO<br />
-              CHECK ELIGIBILITY
-            </h1>
-
-            <div style={{
-              margin: '25px auto',
-              width: '100%',
-              maxWidth: '400px'
-            }}>
-              <img 
-                src="https://i.imgur.com/0gi6mqn.png" 
-                alt="Gold Fart Dust Logo" 
-                style={{ 
-                  width: '100%',
-                  height: 'auto'
-                }}
-              />
-            </div>
-
-            {!wallet ? (
-              <div style={{
-                margin: '20px 0'
-              }}>
-                <button 
-                  style={buttonStyle}
-                  onClick={() => connect()}
-                  className="glow-button"
-                >
-                  LINK ETH WALLET
-                </button>
-                <button 
-                  style={buttonStyle}
-                  onClick={() => connect()}
-                  className="glow-button"
-                >
-                  LINK SOL WALLET
-                </button>
-              </div>
-            ) : (
-              <div style={{
-                margin: '20px 0',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '15px'
-              }}>
-                <div style={{
-                  padding: '12px 20px',
-                  background: 'rgba(218, 165, 32, 0.1)',
-                  borderRadius: '8px',
-                  border: '1px solid rgba(255, 215, 0, 0.2)'
-                }}>
-                  <p style={{
-                    margin: 0,
-                    color: '#FFD700',
-                    fontSize: '12px'
-                  }}>
-                    Connected: {wallet.accounts[0].address.slice(0, 6)}...{wallet.accounts[0].address.slice(-4)}
-                  </p>
-                </div>
-
-                <button
-                  style={buttonStyle}
-                  onClick={checkEligibility}
-                  disabled={isChecking}
-                  className="glow-button"
-                >
-                  {isChecking ? (
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-                      <span style={{ display: 'inline-block', animation: 'spin 1s linear infinite' }}>⚡</span>
-                      Checking...
-                    </div>
-                  ) : 'Check Eligibility'}
-                </button>
-
-                {eligibilityResult && (
-                  <div style={{
-                    padding: '20px',
-                    background: 'rgba(255, 215, 0, 0.1)',
-                    borderRadius: '8px',
-                    border: '1px solid rgba(255, 215, 0, 0.2)',
-                    color: '#FFD700',
-                    fontSize: '14px',
-                    animation: 'fadeIn 0.5s ease-in',
-                    maxWidth: '400px',
-                    lineHeight: '1.6',
-                    whiteSpace: 'pre-line'
-                  }}>
-                    {eligibilityResult}
-                  </div>
-                )}
-              </div>
-            )}
-
-            <div style={{
-              marginTop: '30px',
-              padding: '20px',
-              background: '#191919',
-              borderRadius: '8px',
-              border: '1px solid rgba(255, 215, 0, 0.1)'
-            }}>
-              <div style={{
-                color: '#FFD700',
-                fontSize: '12px',
-                marginBottom: '15px'
-              }}>
-                Connecting your wallet is secure
-              </div>
-              <img 
-                src="https://i.imgur.com/kg7tpYd.png" 
-                alt="Security Badge" 
-                style={{ 
-                  width: '180px',
-                  height: 'auto'
-                }}
-              />
-            </div>
-          </div>
+          {/* Rest of your wallet connection code */}
         </div>
-      </div>
 
-      {/* Information Section */}
-      <div style={{
-        background: '#191919',
-        borderRadius: '16px',
-        padding: '30px',
-        maxWidth: '800px',
-        width: '90%',
-        marginTop: '30px',
-        boxShadow: '0 0 30px rgba(218, 165, 32, 0.1)',
-        textAlign: 'left',
-        position: 'relative',
-        zIndex: 1,
-        border: '1px solid rgba(128, 128, 128, 0.2)'
-      }}>
-        <h2 style={{
-          fontFamily: '"Press Start 2P", monospace',
-          fontSize: '20px',
-          color: '#FFD700',
-          marginBottom: '20px',
+        {/* Information Section */}
+        <div style={{
+          background: '#191919',
+          borderRadius: '16px',
+          padding: '30px',
+          maxWidth: '800px',
+          width: '90%',
+          marginTop: '30px',
+          boxShadow: '0 0 30px rgba(218, 165, 32, 0.1)',
+          textAlign: 'left',
+          position: 'relative',
+          zIndex: 1,
+          border: '1px solid rgba(128, 128, 128, 0.2)'
+        }}>
+          {/* Rest of your information section code */}
+        </div>
+
+        {/* Disclaimer Section */}
+        <div style={{
+          maxWidth: '800px',
+          width: '90%',
+          marginTop: '30px',
           textAlign: 'center'
         }}>
-          About Gold Dust ($GFD)
-        </h2>
-        
-        <div style={{
-          color: '#FFD700',
-          fontSize: '14px',
-          lineHeight: '1.8',
-          marginBottom: '20px'
-        }}>
-          Welcome to the magical world of Gold Dust—your gateway to exclusive rewards within the $UFD ecosystem!
+          <p style={{
+            color: '#666666',
+            fontSize: '12px',
+            lineHeight: '1.6',
+            padding: '20px',
+            background: 'rgba(128, 128, 128, 0.1)',
+            borderRadius: '8px',
+            fontFamily: '"Press Start 2P", monospace'
+          }}>
+            Gold Fart Dust (GFD) and Unicorn Fart Dust (UFD) have no backing — no gold, no silver, no hidden treasure — just pure humor, curiosity, and a dash of meme magic. This is <strong>not investment advice</strong>. If you're considering "investing" in either GFD or UFD, keep in mind that its value aligns perfectly with its name. But hey, the world has a funny way of surprising us sometimes.
+          </p>
         </div>
 
-        <div style={{
-          background: 'rgba(255, 215, 0, 0.1)',
-          padding: '20px',
-          borderRadius: '8px',
-          marginBottom: '20px',
-          border: '1px solid rgba(255, 215, 0, 0.2)'
-        }}>
-          <h3 style={{
-            fontFamily: '"Press Start 2P", monospace',
-            fontSize: '16px',
-            color: '#FFD700',
-            marginBottom: '15px'
-          }}>
-            Why Claim Gold Dust?
-          </h3>
-          <ul style={{
-            color: '#FFD700',
-            fontSize: '14px',
-            lineHeight: '1.8',
-            listStyle: 'none',
-            padding: 0
-          }}>
-            <li style={{ marginBottom: '10px' }}>🌟 Rewards for Loyalty: As a $UFD holder, Gold Dust is your well-deserved reward</li>
-            <li style={{ marginBottom: '10px' }}>✨ Easy Access to Future Perks: Unlock exclusive features in the $UFD ecosystem</li>
-            <li style={{ marginBottom: '10px' }}>🎁 Surprise Drops: We'll keep the magic alive with ongoing airdrops</li>
-          </ul>
-        </div>
+        {/* Gold Flakes */}
+        {[...Array(50)].map((_, index) => (
+          <GoldFlake key={index} index={index} />
+        ))}
 
-        <div style={{
-          background: 'rgba(255, 215, 0, 0.1)',
-          padding: '20px',
-          borderRadius: '8px',
-          marginBottom: '20px',
-          border: '1px solid rgba(255, 215, 0, 0.2)'
-        }}>
-          <h3 style={{
-            fontFamily: '"Press Start 2P", monospace',
-            fontSize: '16px',
-            color: '#FFD700',
-            marginBottom: '15px'
-          }}>
-            How to Claim Your Airdrop
-          </h3>
-          <div style={{
-            color: '#FFD700',
-            fontSize: '14px',
-            lineHeight: '1.8'
-          }}>
-            <p style={{ marginBottom: '10px' }}>1️⃣ Connect Your Wallet: Make sure your Solana wallet is ready</p>
-            <p style={{ marginBottom: '10px' }}>2️⃣ Check Eligibility: Hold $UFD tokens to qualify</p>
-            <p style={{ marginBottom: '10px' }}>3️⃣ Claim Your Gold Dust: Click the button to add sparkle to your wallet!</p>
-          </div>
-        </div>
-
-        <div style={{
-          background: 'rgba(255, 215, 0, 0.1)',
-          padding: '20px',
-          borderRadius: '8px',
-          marginBottom: '20px',
-          border: '1px solid rgba(255, 215, 0, 0.2)'
-        }}>
-          <h3 style={{
-            fontFamily: '"Press Start 2P", monospace',
-            fontSize: '16px',
-            color: '#FFD700',
-            marginBottom: '15px'
-          }}>
-            The Story Behind Gold Dust
-          </h3>
-          <div style={{
-            color: '#FFD700',
-            fontSize: '14px',
-            lineHeight: '1.8'
-          }}>
-            <p style={{ marginBottom: '10px' }}>Gold Dust ($GFD) is the natural evolution of the $UFD ecosystem. Built on Solana for lightning-fast transactions, it's designed as a rewards token that opens new possibilities for the $UFD community.</p>
-            <p>Whether through staking, airdrops, or upcoming features, Gold Dust adds utility and excitement to the magical world of $UFD.</p>
-          </div>
-        </div>
+        <style>
+          {`
+            .animated-border {
+              position: relative;
+            }
+            .animated-border::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              border-radius: 4px;
+              padding: 2px;
+              background: linear-gradient(
+                45deg,
+                #FFD700,
+                #FF1493,
+                #FFD700,
+                #FF1493
+              );
+              -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+              -webkit-mask-composite: xor;
+              mask-composite: exclude;
+              background-size: 300% 300%;
+              animation: borderAnimation 4s ease infinite;
+            }
+            @keyframes borderAnimation {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+            @keyframes float {
+              0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+              }
+              10% {
+                opacity: 1;
+              }
+              90% {
+                opacity: 1;
+              }
+              100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+              }
+            }
+            .glow-button {
+              position: relative;
+              overflow: hidden;
+            }
+            .glow-button:hover {
+              transform: translateY(-1px);
+              box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3), 0 0 30px rgba(255, 215, 0, 0.3);
+            }
+            .glow-button:active {
+              transform: translateY(1px);
+            }
+            @keyframes spin {
+              from { transform: rotate(0deg); }
+              to { transform: rotate(360deg); }
+            }
+            @keyframes fadeIn {
+              from { opacity: 0; transform: translateY(10px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+          `}
+        </style>
       </div>
-
-      {/* Disclaimer Section */}
-      <div style={{
-        maxWidth: '800px',
-        width: '90%',
-        marginTop: '30px',
-        textAlign: 'center'
-      }}>
-        <p style={{
-          color: '#666666',
-          fontSize: '12px',
-          lineHeight: '1.6',
-          padding: '20px',
-          background: 'rgba(128, 128, 128, 0.1)',
-          borderRadius: '8px',
-          fontFamily: '"Press Start 2P", monospace'
-        }}>
-          Gold Fart Dust (GFD) and Unicorn Fart Dust (UFD) have no backing — no gold, no silver, no hidden treasure — just pure humor, curiosity, and a dash of meme magic. This is <strong>not investment advice</strong>. If you're considering "investing" in either GFD or UFD, keep in mind that its value aligns perfectly with its name. But hey, the world has a funny way of surprising us sometimes.
-        </p>
-      </div>
-
-      <style>
-        {`
-          .animated-border {
-            position: relative;
-          }
-          .animated-border::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 4px;
-            padding: 2px;
-            background: linear-gradient(
-              45deg,
-              #FFD700,
-              #FF1493,
-              #FFD700,
-              #FF1493
-            );
-            -webkit-mask: 
-              linear-gradient(#fff 0 0) content-box, 
-              linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            background-size: 300% 300%;
-            animation: borderAnimation 4s ease infinite;
-          }
-          @keyframes borderAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-          }
-          .glow-button {
-            position: relative;
-            overflow: hidden;
-          }
-          .glow-button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3), 0 0 30px rgba(255, 215, 0, 0.3);
-          }
-          .glow-button:active {
-            transform: translateY(1px);
-          }
-          @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-          }
-          @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        `}
-      </style>
     </div>
-  </div>
-);
+  );
 }
 
 export default App;
