@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'mencoMed';
+    src: url('/fonts/mencoMed.woff2') format('woff2'),
+         url('/fonts/mencoMed.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+  }
