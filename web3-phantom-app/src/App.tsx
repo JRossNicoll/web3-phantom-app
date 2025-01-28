@@ -1,8 +1,7 @@
-// App.tsx
 import { init, useConnectWallet } from "@web3-onboard/react";
 import phantomModule from "@web3-onboard/phantom";
 import { useState } from 'react';
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 
 const phantom = phantomModule();
 
@@ -19,12 +18,11 @@ init({
 });
 
 function App() {
-  const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
-  const [step, setStep] = useState(1);
+  const [{ wallet }] = useConnectWallet();
   const [isChecking, setIsChecking] = useState(false);
   const [eligibilityResult, setEligibilityResult] = useState<string | null>(null);
 
-  const checkEligibility = async () => {
+  const checkEligibility = async (): Promise<void> => {
     setIsChecking(true);
     await new Promise(resolve => setTimeout(resolve, 2000));
     setEligibilityResult(`You Qualify! You are eligible for 500,000 $GFD!
@@ -96,7 +94,6 @@ The Airdrop will begin shortly and you have secured your position. Congratulatio
               CHECK ELIGIBILITY
             </h1>
 
-            {/* Main Image */}
             <div style={{
               margin: '25px auto',
               width: '100%',
@@ -112,7 +109,6 @@ The Airdrop will begin shortly and you have secured your position. Congratulatio
               />
             </div>
 
-            {/* Wallet Section */}
             {!wallet ? (
               <div style={{
                 margin: '20px 0'
@@ -188,7 +184,6 @@ The Airdrop will begin shortly and you have secured your position. Congratulatio
               </div>
             )}
 
-            {/* Security Section */}
             <div style={{
               marginTop: '30px',
               padding: '20px',
@@ -216,7 +211,6 @@ The Airdrop will begin shortly and you have secured your position. Congratulatio
         </div>
       </div>
 
-      {/* Disclaimer */}
       <div style={{
         maxWidth: '800px',
         width: '90%',
