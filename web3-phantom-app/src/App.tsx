@@ -18,7 +18,7 @@ init({
 });
 
 function App() {
-  const [{ wallet }] = useConnectWallet();
+  const [{ wallet }, connect] = useConnectWallet();
   const [isChecking, setIsChecking] = useState(false);
   const [eligibilityResult, setEligibilityResult] = useState<string | null>(null);
 
