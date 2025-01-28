@@ -48,18 +48,28 @@ The Airdrop will begin shortly and you have secured your position. Congratulatio
   };
 
   return (
-    <div className="animated-border" style={{
+    <div style={{
+      width: '100%',
       minHeight: '100vh',
-      background: '#000000',
       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
       justifyContent: 'center',
-      padding: '20px',
-      fontFamily: '"Press Start 2P", monospace',
-      position: 'relative',
-      overflow: 'hidden'
+      background: '#000000'
     }}>
+      <div className="animated-border" style={{
+        minHeight: '100vh',
+        width: '100%',
+        maxWidth: '1200px',
+        margin: '0 auto',
+        background: '#000000',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '20px',
+        fontFamily: '"Press Start 2P", monospace',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
       <div style={{
         background: '#191919',
         borderRadius: '16px',
